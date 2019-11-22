@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:in_flutter/components/main_list_view.dart';
+import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/models/offer_article.dart';
-import 'dart:convert';
-
 import 'package:in_flutter/request_slider.dart';
-import 'package:in_flutter/services/webservice.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,194 +27,22 @@ class ExampleHomePage extends StatefulWidget {
 
 class _ExampleHomePageState extends State<ExampleHomePage>
     with TickerProviderStateMixin {
-  List<String> dogImages = new List();
+  var alertSize = 0.0;
+  var showAlert = true;
 
   List<OfferArticle> _offerArticles = List<OfferArticle>();
 
   @override
-  void initState() {
-    super.initState();
-    fetchFive();
-  }
-
-  void _populateOffersArticles() {
-    Webservice().load(OfferArticle.all).then((offerArticles) => {
-      setState(()=> { 
-        _offerArticles = offerArticles
-      })
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      // Anti yellow line
+      resizeToAvoidBottomPadding: false,
+
       // TopAppBar
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.add, color: Colors.red[900]),
-              onPressed: () {},
-            ),
-            Text(
-              "Друг на час",
-              style: TextStyle(color: Colors.black),
-            ),
-          ],
-        ),
-        elevation: 3,
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          new IconButton(
-            icon: Icon(Icons.search),
-            color: Colors.black,
-            onPressed: () {},
-          ),
-          new IconButton(
-            icon: Icon(Icons.message, color: Colors.black),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: MyAppBar(),
 
       //Body
-      body: ListView.builder(
-        itemCount: dogImages.length,
-        padding: const EdgeInsets.only(top: 10.0),
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-
-              //Card height
-              height: 477.0,
-
-              //Card view
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                elevation: 5,
-                margin: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    // Image part
-                    Material(
-                      elevation: 100,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Container(
-                          constraints:
-                              BoxConstraints.tightFor(height: 236, width: 390),
-                          child: Image.network(dogImages[index],
-                              fit: BoxFit.fitWidth),
-                        ),
-                      ),
-                    ),
-
-                    // Price and time part
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Container(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            //Price
-                            Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.attach_money,
-                                  color: Colors.red[900],
-                                ),
-                                Container(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text("Цена",
-                                        style:
-                                            TextStyle(color: Colors.black38)),
-                                    Divider(
-                                      height: 4,
-                                    ),
-                                    Text("2 билетa")
-                                  ],
-                                )
-                              ],
-                            ),
-                            //Divider
-                            Container(
-                              height: 40,
-                              width: 1,
-                              color: Colors.black38,
-                            ),
-                            //Time
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.access_time, color: Colors.red[900]),
-                                Container(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text("Время",
-                                        style:
-                                            TextStyle(color: Colors.black38)),
-                                    Divider(
-                                      height: 4,
-                                    ),
-                                    Text("18:30")
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    // Main info text
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        "Нужен друг для похода в кино",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w700, fontFamily: 'Montserrat'),
-                      ),
-                    ),
-                    // Description text
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(11.0, 10, 9.0, 1),
-                      child: Text(
-                        "Ищу друга на вечер, для похода в кино, денег не беру, есть два билета. парень или девушка, не важно.",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Montserrat',
-                            ), // doesnt work well
-                      ),
-                    ),
-                    // Tags
-                    // Button @TODO add gradient
-                    ButtonTheme(
-                      minWidth: 300.0,
-                      height: 44,
-                      child: RaisedButton(
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(22.0)),
-                        child: Text(
-                          "Отправить предложение",
-                          style: TextStyle(
-                              color: Colors.white, fontFamily: 'Montserrat'),
-                        ),
-                        onPressed: () {},
-                      ),
-                    )
-                  ],
-                ),
-              ));
-        },
-      ),
+      body: MainListView(),
 
       //BottomNavBar
       bottomNavigationBar: BottomAppBar(
@@ -258,22 +84,4 @@ class _ExampleHomePageState extends State<ExampleHomePage>
       ),
     );
   }
-
-  fetch() async {
-    final responce = await http.get('https://dog.ceo/api/breeds/image/random');
-    if (responce.statusCode == 200) {
-      setState(() {
-        dogImages.add(json.decode(responce.body)['message']);
-      });
-    } else {
-      throw Exception("Fail");
-    }
-  }
-
-  fetchFive() {
-    for (int i = 0; i < 10; i++) {
-      fetch();
-    }
-  }
 }
-

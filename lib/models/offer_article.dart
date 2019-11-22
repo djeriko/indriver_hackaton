@@ -24,7 +24,8 @@ class OfferArticle {
       url: Constants.HEADLINE_OFFERS_URL,
       parse: (response) {
         final result = json.decode(response.body);
-        Iterable list = result['article'];
+        print("123 ${response.body}");
+        Iterable list = result;
         return list.map((model)=>OfferArticle.fromJson(model)).toList();
       }
     );
