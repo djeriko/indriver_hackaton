@@ -44,7 +44,7 @@ class _ExampleHomePageState extends State<ExampleHomePage>
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            new IconButton(
+            IconButton(
               icon: Icon(Icons.add, color: Colors.red[900]),
               onPressed: () {},
             ),
@@ -265,14 +265,3 @@ class _ExampleHomePageState extends State<ExampleHomePage>
   }
 }
 
-// class OfferCart extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 100.0,
-//       height: 200.0,
-//       color: Colors.brown,
-//       child: Image.network(dogImages[index], fit: BoxFit.fitWidth),
-//     );
-//   }
-// }
