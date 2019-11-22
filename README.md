@@ -1,4 +1,3 @@
-# in_flutter
+# Project for winter INDRIVER HACKATON.
 
-Project for winter INDRIVER HACKATON.
-
+Dart Vader team

@@ -169,7 +169,7 @@ class _ExampleHomePageState extends State<ExampleHomePage>
                       child: Text(
                         "Нужен друг для похода в кино",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w600),
+                            fontSize: 20, fontWeight: FontWeight.w700, fontFamily: 'Montserrat'),
                       ),
                     ),
                     // Description text
@@ -179,7 +179,8 @@ class _ExampleHomePageState extends State<ExampleHomePage>
                         "Ищу друга на вечер, для похода в кино, денег не беру, есть два билета. парень или девушка, не важно.",
                         style: TextStyle(
                             fontSize: 14,
-                            fontFamily: 'Montserrat'), // doesnt work well
+                            fontFamily: 'Montserrat',
+                            ), // doesnt work well
                       ),
                     ),
                     // Tags
