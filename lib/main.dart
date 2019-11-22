@@ -90,7 +90,7 @@ class _ExampleHomePageState extends State<ExampleHomePage>
                   children: <Widget>[
                     // Image part
                     Material(
-                      elevation: 10,
+                      elevation: 100,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Container(
