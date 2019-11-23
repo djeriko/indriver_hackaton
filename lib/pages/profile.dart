@@ -16,7 +16,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        titleText: "Профиль",
+        titleText: widget.urlImage.userName,
         showBack: true,
       ),
       body:
@@ -30,7 +30,7 @@ class _ProfileState extends State<Profile> {
           child: Column(
             children: <Widget>[
               // Column start
-              Image.network(widget.urlImage),
+              Image.network(widget.urlImage.urlToImage),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
                 child: Row(
@@ -50,7 +50,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("23"),
+                        child: Text(widget.urlImage.userAge),
                       ),
                     ),
                   ],
@@ -72,9 +72,19 @@ class _ProfileState extends State<Profile> {
               ),
 
               // About text
-              Text(
-                  "Учусь на юриста в СБУ, люблю рисовать и проводить время за просмотром фильмов"),
-              Text("Хобби"),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20.0, 6, 0, 0),
+                child: Text(
+                    widget.urlImage.userAbout, textAlign: TextAlign.left,),
+              ),
+
+              // Hobbies
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20.0, 12, 0, 0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("Хобби", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),)),
+              ),
             ],
           ),
         ),

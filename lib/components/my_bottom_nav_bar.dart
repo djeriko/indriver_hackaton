@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:in_flutter/pages/add_offer.dart';
+import 'package:in_flutter/pages/my_profile.dart';
 import 'package:in_flutter/pages/request_slider.dart';
 
 class MyBottomAppBar extends StatelessWidget {
@@ -21,7 +23,9 @@ class MyBottomAppBar extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.add_circle_outline),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, CupertinoPageRoute(builder: (context)=> new AddOffer()));
+            },
             color: Colors.black,
           ),
           IconButton(
@@ -36,7 +40,10 @@ class MyBottomAppBar extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.account_circle),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  CupertinoPageRoute(builder: (context) => new MyProfile()));
+            },
             color: Colors.black,
           ),
         ],

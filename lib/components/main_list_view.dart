@@ -18,6 +18,7 @@ class _MainListViewState extends State<MainListView> {
   var showBlur = false;
   var blur = 0.0;
 
+
   @override
   void initState() {
     super.initState();
@@ -69,7 +70,7 @@ class _MainListViewState extends State<MainListView> {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) => new Profile(urlImage: _offerArticles[index].urlToImage),));
+                                builder: (context) => new Profile(urlImage: _offerArticles[index]),));
                       },
                       child: Material(
                         elevation: 8,
@@ -112,7 +113,7 @@ class _MainListViewState extends State<MainListView> {
                                     Divider(
                                       height: 4,
                                     ),
-                                    Text("2 билетa")
+                                    Text(_offerArticles[index].price)
                                   ],
                                 )
                               ],
@@ -138,7 +139,7 @@ class _MainListViewState extends State<MainListView> {
                                     Divider(
                                       height: 4,
                                     ),
-                                    Text("18:30")
+                                    Text(_offerArticles[index].time)
                                   ],
                                 )
                               ],
@@ -152,6 +153,7 @@ class _MainListViewState extends State<MainListView> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
                         _offerArticles[index].title,
+
                         //"Встреча",
                         style: TextStyle(
                             fontSize: 20,
@@ -163,7 +165,7 @@ class _MainListViewState extends State<MainListView> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(11.0, 10, 9.0, 1),
                       child: Text(
-                        "Ищу друга на вечер, для похода в кино, денег не беру, есть два билета. парень или девушка, не важно.",
+                        _offerArticles[index].description,
                         style: TextStyle(
                           fontSize: 14,
                           fontFamily: 'Montserrat',
