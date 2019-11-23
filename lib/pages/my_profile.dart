@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
 import 'package:in_flutter/models/my_profile.dart';
@@ -14,11 +15,11 @@ class _MyProfileState extends State<MyProfile> {
 
   @override
   void initState() {
-    super.initState();
     _populateMyProfileData();
+    super.initState();
   }
 
-  void _populateMyProfileData() {
+  void _populateMyProfileData() async {
     Webservice().load(MyProfileData.all).then((myProfileData) => {
           setState(() => {_myProfileData = myProfileData})
         });
@@ -26,6 +27,9 @@ class _MyProfileState extends State<MyProfile> {
 
   @override
   Widget build(BuildContext context) {
+    if (_myProfileData.isNotEmpty) {
+
+    
     return Scaffold(
       appBar: MyAppBar(
         titleText: "Мой профиль",
@@ -85,7 +89,8 @@ class _MyProfileState extends State<MyProfile> {
                         padding: const EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(_myProfileData[0].userAge),
+                          child: Text("asd"),
+                          //Text(_myProfileData[0].userAge),
                         ),
                       ),
                     ],
@@ -111,7 +116,8 @@ class _MyProfileState extends State<MyProfile> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20.0, 6, 0, 0),
                   child: Text(
-                    _myProfileData[0].userAbout,
+                    'asdasd',
+                    //_myProfileData[0].userAbout,
                     textAlign: TextAlign.left,
                   ),
                 ),
@@ -126,121 +132,107 @@ class _MyProfileState extends State<MyProfile> {
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.w600),
                       )),
-
-                  
                 ),
-                
-Row(children: <Widget>[
-  
-                // coding
-              Padding(
-padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card( 
-                      
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
-                  
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
-                        
-                        child: Text(
-                        'игры',
-                        style: TextStyle(color: Colors.white,fontSize: 17),
-                    ),
-                      ),
 
-                    ),
-                    
-                  ),
-                
-                // movies 
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child:Card( 
-                      
-                      color: Colors.blue,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
-                  
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
-                        
-                        child: Text(
-                        'фильмы',
-                        style: TextStyle(color: Colors.white,fontSize: 17),
-                    ),
+                Row(
+                  children: <Widget>[
+                    // coding
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                      child: Card(
+                        color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 5, right: 5, top: 1, bottom: 1),
+                          child: Text(
+                            'игры',
+                            style: TextStyle(color: Colors.white, fontSize: 17),
+                          ),
+                        ),
                       ),
-
                     ),
-                    
-                  ),
-              
+
+                    // movies
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Card(
+                        color: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 5, right: 5, top: 1, bottom: 1),
+                          child: Text(
+                            'фильмы',
+                            style: TextStyle(color: Colors.white, fontSize: 17),
+                          ),
+                        ),
+                      ),
+                    ),
+
 //games
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child:Card( 
-                      
-                      color: Colors.pink,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
-                  
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
-                        
-                        child: Text(
-                        'программы',
-                        style: TextStyle(color: Colors.white,fontSize: 17),
-                    ),
-                      
-
-                    ),
-                    
-                  ),
-                )
-  
-
-],),
-
-Row(children: <Widget>[
-   Padding(
-padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card( 
-                      
-                      color: Colors.indigo,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
-                  
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
-                        child: Text(
-                        'музыка',
-                        style: TextStyle(color: Colors.white,fontSize: 17),
-                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Card(
+                        color: Colors.pink,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 5, right: 5, top: 1, bottom: 1),
+                          child: Text(
+                            'программы',
+                            style: TextStyle(color: Colors.white, fontSize: 17),
+                          ),
+                        ),
                       ),
-
-                    ),
-                    
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child:Card( 
-                      
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
-                  
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
-
-                        child: Text(
-                        'общение',
-                        style: TextStyle(color: Colors.white,fontSize: 17),
-                    ),
-                      
-
-                    ),
-                    
-                  ),
+                    )
+                  ],
                 ),
-                
 
-],)
-
-
+                Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                      child: Card(
+                        color: Colors.indigo,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 5, right: 5, top: 1, bottom: 1),
+                          child: Text(
+                            'музыка',
+                            style: TextStyle(color: Colors.white, fontSize: 17),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Card(
+                        color: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 5, right: 5, top: 1, bottom: 1),
+                          child: Text(
+                            'общение',
+                            style: TextStyle(color: Colors.white, fontSize: 17),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
@@ -248,5 +240,14 @@ padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card(
       ),
       bottomNavigationBar: MyBottomAppBar(),
     );
+    } else {
+      return Scaffold(
+        appBar: MyAppBar(titleText: "Мой профиль",
+        showBack: true,
+        showEdit: true,
+        showSearch: false,), 
+        bottomNavigationBar: MyBottomAppBar(),
+      );
+    }
   }
 }
