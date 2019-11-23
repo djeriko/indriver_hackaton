@@ -30,6 +30,8 @@ class _MyProfileState extends State<MyProfile> {
       appBar: MyAppBar(
         titleText: "Мой профиль",
         showBack: true,
+        showEdit: true,
+        showSearch: false,
       ),
       body: Container(
         child:

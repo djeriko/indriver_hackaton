@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
+import 'package:in_flutter/components/card_text.dart';
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
 import 'package:in_flutter/components/price_and_time.dart';
 import 'package:in_flutter/models/offer_article.dart';
+import 'package:in_flutter/models/requests_article.dart';
 import 'package:in_flutter/services/webservice.dart';
 
 class RequestSlider extends StatefulWidget {
@@ -14,27 +16,21 @@ class RequestSlider extends StatefulWidget {
 
 class _RequestSliderState extends State<RequestSlider>
     with TickerProviderStateMixin {
-  List<String> welcomeImages = [
-    "assets/welcome0.png",
-    "assets/welcome1.png",
-    "assets/welcome2.png",
-    "assets/welcome2.png",
-    "assets/welcome1.png",
-    "assets/welcome1.png"
-  ];
   List<OfferArticle> _offerArticles = List<OfferArticle>();
+  List<RequestsArticle> _requestsArticles = List<RequestsArticle>();
 
   @override
   void initState() {
     super.initState();
-    _populateOffersArticles();
+    _populateRequestsArticles();
   }
 
-  void _populateOffersArticles() {
-    Webservice().load(OfferArticle.all).then((offerArticles) => {
-          setState(() => {_offerArticles = offerArticles})
-        });
+  void _populateRequestsArticles() {
+    Webservice().load(RequestsArticle.all).then((requestsArticles)=> {
+      setState(()=> {_requestsArticles = requestsArticles})
+    });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +40,15 @@ class _RequestSliderState extends State<RequestSlider>
         appBar: MyAppBar(
           titleText: "Запросы",
           showBack: true,
+          showEdit: false,
+          showSearch: false,
         ),
         body: new Center(
             child: Container(
                 height: 600,
                 child: new TinderSwapCard(
                     orientation: AmassOrientation.BOTTOM,
-                    totalNum: welcomeImages.length,
+                    totalNum: 3,
                     stackNum: 3,
                     swipeEdge: 4.0,
                     maxWidth: MediaQuery.of(context).size.width * 0.9,
@@ -67,14 +65,16 @@ class _RequestSliderState extends State<RequestSlider>
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(8.0))),
                                 elevation: 5,
-                                child: Image.network(
-                                  _offerArticles[index].urlToImage,
+                                child: 
+                                Image.network(
+                                  _requestsArticles[index].urlToImage,
                                   height: 236,
                                   width: 380,
                                   fit: BoxFit.fill,
                                 ),
                               ),
-                             PriceAndTime(data: _offerArticles[index]), 
+                             PriceAndTime(data: _requestsArticles[index]), 
+                             CardText(data: _requestsArticles[index])
                             ],
                           )),
                         ),
@@ -94,12 +94,5 @@ class _RequestSliderState extends State<RequestSlider>
                     }))),
         //BottomNavBar
         bottomNavigationBar: MyBottomAppBar());
-  }
-}
-
-class CardExample extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

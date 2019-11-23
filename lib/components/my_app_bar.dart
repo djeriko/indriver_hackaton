@@ -1,10 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:in_flutter/pages/edit_profile.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   var titleText = "asd";
   var showBack = false;
+  var showEdit = false;
+  var showSearch = true;
 
-  MyAppBar({Key key, this.titleText, this.showBack}) : super(key: key);
+  MyAppBar({Key key, this.titleText, this.showBack, this.showSearch, this.showEdit}) : super(key: key);
 
   @override
 
@@ -32,15 +36,22 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
       elevation: 3,
       backgroundColor: Colors.white,
       actions: <Widget>[
-        new IconButton(
+        showSearch ? new IconButton(
           icon: Icon(Icons.search),
           color: Colors.black,
           onPressed: () {},
-        ),
+        ) : Container(),
         new IconButton(
           icon: Icon(Icons.message, color: Colors.black),
           onPressed: () {},
-        )
+        ),
+        showEdit ? new IconButton(
+          icon: Icon(Icons.edit, color: Colors.black),
+          onPressed: (){
+            Navigator.push(context, CupertinoPageRoute(builder: (context)=> new EditProfile()));
+          },
+          color: Colors.black,
+        ) : Container()
       ],
     );
   }

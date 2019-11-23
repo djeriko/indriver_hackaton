@@ -2,21 +2,21 @@ import 'dart:convert';
 import 'package:in_flutter/constants/constants.dart';
 import 'package:in_flutter/services/webservice.dart';
 
-class OfferArticle {
+class RequestsArticle {
   final String title;
   final String description;
   final String urlToImage;
   final String time;
   final String city;
   final String price;
-  final int likes;
+  final String likes;
   final String userName;
   final String userId;
   final String userAge;
   final String userAbout;
-  //add time and price
+  final String userComment;
 
-  OfferArticle(
+  RequestsArticle(
       {this.title,
       this.description,
       this.urlToImage,
@@ -27,10 +27,11 @@ class OfferArticle {
       this.userName,
       this.userId,
       this.userAge,
-      this.userAbout});
+      this.userAbout,
+      this.userComment});
 
-  factory OfferArticle.fromJson(Map<String, dynamic> json) {
-    return OfferArticle(
+      factory RequestsArticle.fromJson(Map<String, dynamic>json) {
+        return RequestsArticle(
         title: json['title'],
         description: json['description'],
         urlToImage: json['urlToImage'],
@@ -41,17 +42,21 @@ class OfferArticle {
         userName: json['userName'],
         userAge: json['userAge'],
         userId: json['userId'],
-        userAbout: json['userAbout']);
-  }
+        userAbout: json['userAbout'],
+        userComment: json['userComment']);
+      }
 
-  static Resource<List<OfferArticle>> get all {
-    return Resource(
-        url: Constants.HEADLINE_OFFERS_URL,
-        parse: (response) {
-          final result = json.decode(response.body);
-          print("123 ${response.body}");
-          Iterable list = result;
-          return list.map((model) => OfferArticle.fromJson(model)).toList();
-        });
-  }
+      static Resource<List<RequestsArticle>> get all {
+        return Resource(
+          url: Constants.REQUESTS_URL,
+          parse: (response) {
+            final result = json.decode(response.body);
+            print("yo ${response.body}");
+            Iterable list = result;
+            return list.map((model) => RequestsArticle.fromJson(model)).toList();
+          }
+        );
+      }
 }
+
+

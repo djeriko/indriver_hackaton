@@ -40,7 +40,7 @@ class _ExampleHomePageState extends State<ExampleHomePage>
       resizeToAvoidBottomPadding: false,
 
       // TopAppBar
-      appBar: MyAppBar(titleText: "Главная", showBack: false,),
+      appBar: MyAppBar(titleText: "Главная", showBack: false, showEdit: false, showSearch: true,),
 
       //Body
 
