@@ -8,6 +8,22 @@ class AddOffer extends StatefulWidget {
 }
 
 class _AddOfferState extends State<AddOffer> {
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final priceController = TextEditingController();
+  final timeController = TextEditingController();
+  final tagsController = TextEditingController();
+
+  @override
+  void dispose(){
+    titleController.dispose();
+    descriptionController.dispose();
+    priceController.dispose();
+    timeController.dispose();
+    tagsController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +44,7 @@ class _AddOfferState extends State<AddOffer> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
+
                 // Title part
                 Align(
                     alignment: Alignment.centerLeft,
@@ -44,9 +61,9 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: titleController,
                           decoration: InputDecoration.collapsed(
                               hintText: "Введите заголовок услуги"),
-                          onChanged: (val) {},
                         ),
                         Divider(),
                       ],
@@ -72,6 +89,7 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: descriptionController,
                           decoration: InputDecoration.collapsed(
                               hintText: "Введите описание услуги"),
                           onChanged: (val) {},
@@ -178,7 +196,9 @@ class _AddOfferState extends State<AddOffer> {
                           color: Colors.white, fontFamily: 'Montserrat'),
                     ),
                     onPressed: () {
-                      setState(() {});
+                      setState(() {
+                        print(titleController.value.text);
+                      });
                     },
                   ),
                 )
