@@ -177,28 +177,44 @@ class _MainListViewState extends State<MainListView> {
                     ButtonTheme(
                       minWidth: 300.0,
                       height: 44,
-                      child: RaisedButton(
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(22.0)),
-                        child: Text(
-                          "Отправить предложение",
-                          style: TextStyle(
-                              color: Colors.white, fontFamily: 'Montserrat'),
+                      
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: <Color>[
+                           Colors.green,
+                           Colors.indigo,
+              
+                            ]
+                          )
                         ),
-                        onPressed: () {
+                        child: RaisedButton(
+
+                        
+                          child: const Text(
+                         'Отправить предлоение',
+                          style: TextStyle(fontSize: 20,color: Colors.white) 
+                      
+                          ) ,
+                          onPressed: () {
                           setState(() {
                             showAlert = !showAlert;
                             showBlur = !showBlur;
                           });
                         },
+                        ),
                       ),
+                        
+                      
+                
+                    
                     )
                   ],
                 ),
               ));
         },
       ),
+
 
       AnimatedOpacity(
         duration: Duration(milliseconds: 0),
