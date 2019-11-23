@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:in_flutter/components/loading.dart';
 import 'package:in_flutter/models/offer_article.dart';
 import 'package:in_flutter/pages/profile.dart';
 import 'package:in_flutter/services/webservice.dart';
@@ -44,6 +45,7 @@ class _MainListViewState extends State<MainListView> {
       blur = 10;
     }
 
+    if(_offerArticles.isNotEmpty) {
     return Stack(children: <Widget>[
       ListView.builder(
         itemCount: _offerArticles.length,
@@ -193,22 +195,17 @@ class _MainListViewState extends State<MainListView> {
                         ), // doesnt work well
                       ),
                     ),
+                    Container(height: 10,),
                     // Tags
                     // Button @TODO add gradient
-                    ButtonTheme(
-                      minWidth: 300.0,
-                      padding: EdgeInsets.all(10),
-                      height: 40,
-                      child: RaisedButton(
+                    RaisedButton(
+                      
                            onPressed: (){
-
                              setState(() {
                                showAlert = !showAlert;
                               showBlur = !showBlur;
                              });
-
                         },
-                        
 
                         textColor: Colors.white,
                         padding: const EdgeInsets.all(0.0),
@@ -225,14 +222,19 @@ class _MainListViewState extends State<MainListView> {
                                   ]),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(80.0))),
-                          padding: const EdgeInsets.fromLTRB(60, 10, 60, 10),
+                          padding: const EdgeInsets.all(15),
                           child: const Text(
                             "Отправить предложение",
                             style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ),
                       ),
-                    ),
+                    // ButtonTheme(
+                    //   minWidth: 100.0,
+                    //   padding: EdgeInsets.all(0),
+                    //   height: 40,
+                    //   child: 
+                    // ),
                   ],
                 ),
               ));
@@ -350,5 +352,9 @@ class _MainListViewState extends State<MainListView> {
         ),
       ),
     ]);
+    }
+    else {
+      return MyLoading();
+    }
   }
 }

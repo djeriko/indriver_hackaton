@@ -33,7 +33,7 @@ class _MyProfileState extends State<MyProfile> {
         resizeToAvoidBottomPadding: false,
         resizeToAvoidBottomInset: false,
         appBar: MyAppBar(
-          titleText: "Мой профиль",
+          titleText: "Профиль",
           showBack: true,
           showEdit: true,
           showSearch: false,
