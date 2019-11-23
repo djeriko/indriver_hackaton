@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
+import 'package:in_flutter/models/new_offer.dart';
+import 'package:in_flutter/constants/constants.dart';
+import 'package:in_flutter/services/webservice.dart';
 
 class AddOffer extends StatefulWidget {
   @override
@@ -8,6 +11,22 @@ class AddOffer extends StatefulWidget {
 }
 
 class _AddOfferState extends State<AddOffer> {
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final priceController = TextEditingController();
+  final timeController = TextEditingController();
+  final tagsController = TextEditingController();
+
+  @override
+  void dispose() {
+    titleController.dispose();
+    descriptionController.dispose();
+    priceController.dispose();
+    timeController.dispose();
+    tagsController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,9 +63,9 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: titleController,
                           decoration: InputDecoration.collapsed(
                               hintText: "Введите заголовок услуги"),
-                          onChanged: (val) {},
                         ),
                         Divider(),
                       ],
@@ -72,6 +91,7 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: descriptionController,
                           decoration: InputDecoration.collapsed(
                               hintText: "Введите описание услуги"),
                           onChanged: (val) {},
@@ -101,9 +121,9 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: priceController,
                           decoration: InputDecoration.collapsed(
                               hintText: "Услуга или руб"),
-                          onChanged: (val) {},
                         ),
                         Divider(),
                       ],
@@ -125,6 +145,7 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: timeController,
                           decoration: InputDecoration.collapsed(
                               hintText: "00:00",
                               hintStyle: TextStyle(
@@ -152,6 +173,7 @@ class _AddOfferState extends State<AddOffer> {
                           height: 15,
                         ),
                         TextField(
+                          controller: tagsController,
                           decoration: InputDecoration.collapsed(
                             hintText: "Введите теги через запятую",
                           ),
@@ -177,8 +199,28 @@ class _AddOfferState extends State<AddOffer> {
                       style: TextStyle(
                           color: Colors.white, fontFamily: 'Montserrat'),
                     ),
-                    onPressed: () {
-                      setState(() {});
+                    onPressed: () async {
+                      print("asd");
+                      NewOffer newOffer = new NewOffer(
+                          title: titleController.value.text,
+                          description: descriptionController.value.text, 
+                          price: priceController.value.text,
+                          time: timeController.value.text, 
+                          tags: tagsController.value.text,
+                          urlToImage:
+                              "http://coolmenshair.com/wp-content/uploads/Asian-hairstyles-for-men-6.jpg",
+                          likes: '3',
+                          userName: "Лев Толстой",
+                          userId: "4",
+                          userAge: '35',
+                          userAbout:
+                              "Пишу книги. Играю в футбол. Сажаю яблоки у себя в саду",
+                          city: 'Yakutsk');
+                      NewOffer p = await createPost(
+                          Constants.HEADLINE_OFFERS_URL,
+                          body: newOffer.toMap());
+                      Navigator.pop(context);
+                      print(p.title);
                     },
                   ),
                 )
