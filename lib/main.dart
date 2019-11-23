@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:in_flutter/components/main_list_view.dart';
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -26,9 +28,11 @@ class ExampleHomePage extends StatefulWidget {
 
 class _ExampleHomePageState extends State<ExampleHomePage>
     with TickerProviderStateMixin {
+
   var alertSize = 0.0;
   var showAlert = true;
   var myTitle = "qwe";
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,9 @@ class _ExampleHomePageState extends State<ExampleHomePage>
       appBar: MyAppBar(titleText: "Главная", showBack: false,),
 
       //Body
+
       body: MainListView(),
+
 
       //BottomNavBar
       bottomNavigationBar: MyBottomAppBar() 
