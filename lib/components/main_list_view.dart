@@ -18,6 +18,7 @@ class _MainListViewState extends State<MainListView> {
   var showBlur = false;
   var blur = 0.0;
 
+
   @override
   void initState() {
     super.initState();
@@ -69,9 +70,7 @@ class _MainListViewState extends State<MainListView> {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                              builder: (context) =>
-                                  new Profile(urlImage: _offerArticles[index]),
-                            ));
+                                builder: (context) => new Profile(urlImage: _offerArticles[index]),));
                       },
                       child: Material(
                         elevation: 8,
@@ -79,6 +78,7 @@ class _MainListViewState extends State<MainListView> {
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
                             constraints: BoxConstraints.tightFor(
+<<<<<<< HEAD
                                 height: 236, width: 380),
                             child: Stack(children: <Widget>[
                               Image.network(_offerArticles[index].urlToImage,
@@ -98,6 +98,12 @@ class _MainListViewState extends State<MainListView> {
                                     ),
                                   )),
                             ]),
+=======
+                                height: 236, width: 390),
+                            child: Image.network(
+                                _offerArticles[index].urlToImage,
+                                fit: BoxFit.fitWidth),
+>>>>>>> c29bf89c875622080f0734283618d900987bcc60
                           ),
                         ),
                       ),
@@ -192,29 +198,43 @@ class _MainListViewState extends State<MainListView> {
                     // Button @TODO add gradient
                     ButtonTheme(
                       minWidth: 300.0,
-                      height: 44,
+                      padding: EdgeInsets.all(10),
+                      height: 40,
                       child: RaisedButton(
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(22.0)),
-                        child: Text(
-                          "Отправить предложение",
-                          style: TextStyle(
-                              color: Colors.white, fontFamily: 'Montserrat'),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            showAlert = !showAlert;
-                            showBlur = !showBlur;
-                          });
+                           onPressed: (){
+
                         },
+                        
+                        textColor: Colors.white,
+                        padding: const EdgeInsets.all(0.0),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80)),
+                        child: Container(
+                          
+                          decoration: BoxDecoration(
+                            
+                            gradient: LinearGradient(begin:Alignment.bottomCenter ,end: Alignment.topCenter,
+                              colors:<Color>[
+                              Color.fromRGBO(239,120,120,1) ,
+                             Color.fromRGBO(224,81,81,1)
+                            
+                            ]
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(80.0))
+
+                        ),
+                        padding: const EdgeInsets.fromLTRB(60,10,60,10),
+                        child: const Text(
+                          "Отправить предложение",
+                          style: TextStyle(fontSize: 18,color: Colors.white),
+                        ),
                       ),
                     )
-                  ],
+                      )  ],
                 ),
               ));
         },
       ),
+
 
       AnimatedOpacity(
         duration: Duration(milliseconds: 0),
