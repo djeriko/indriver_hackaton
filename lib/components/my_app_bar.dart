@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:in_flutter/pages/edit_profile.dart';
+import 'package:in_flutter/pages/my_messages.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   var titleText = "asd";
@@ -43,7 +44,9 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
         ) : Container(),
         new IconButton(
           icon: Icon(Icons.message, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> new MyMessages()));
+          },
         ),
         showEdit ? new IconButton(
           icon: Icon(Icons.edit, color: Colors.black),

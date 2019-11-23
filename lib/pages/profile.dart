@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
 import 'package:async/async.dart';
+import 'package:in_flutter/pages/my_messages.dart';
+import 'package:in_flutter/pages/my_report.dart';
 
 class Profile extends StatefulWidget {
   var urlImage;
@@ -12,14 +15,15 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile>  {
-
+class _ProfileState extends State<Profile> {
   @override
-  Widget build(BuildContext context)  {
-    return   Scaffold(
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: MyAppBar(
         titleText: widget.urlImage.userName,
         showBack: true,
+        showSearch: false,
+        showEdit: false,
       ),
       body:
           // Text style
@@ -31,7 +35,22 @@ class _ProfileState extends State<Profile>  {
           child: Column(
             children: <Widget>[
               // Column start
-              Image.network(widget.urlImage.urlToImage),
+              Stack(
+                children: <Widget>[
+                  Image.network(widget.urlImage.urlToImage),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, prefix0.MaterialPageRoute(builder: (context)=> new MyReport()));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: prefix0.Align(
+                          alignment: Alignment.bottomRight,
+                          child: Icon(Icons.report, color: Colors.white)),
+                    ),
+                  )
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
                 child: Row(
@@ -57,7 +76,7 @@ class _ProfileState extends State<Profile>  {
                   ],
                 ),
               ),
-              
+
               // About
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 15, 0, 0),
@@ -76,15 +95,21 @@ class _ProfileState extends State<Profile>  {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20.0, 6, 0, 0),
                 child: Text(
-                    widget.urlImage.userAbout, textAlign: TextAlign.left,),
+                  widget.urlImage.userAbout,
+                  textAlign: TextAlign.left,
+                ),
               ),
 
               // Hobbies
               Padding(
                 padding: const EdgeInsets.fromLTRB(20.0, 12, 0, 0),
                 child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Хобби", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),)),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Хобби",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                    )),
               ),
             ],
           ),

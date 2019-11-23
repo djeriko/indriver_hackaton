@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:in_flutter/components/card_text.dart';
+import 'package:in_flutter/components/loading.dart';
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
 import 'package:in_flutter/components/price_and_time.dart';
-import 'package:in_flutter/models/offer_article.dart';
 import 'package:in_flutter/models/requests_article.dart';
 import 'package:in_flutter/services/webservice.dart';
-import 'package:async/async.dart';
 
 class RequestSlider extends StatefulWidget {
   @override
@@ -48,7 +47,7 @@ class _RequestSliderState extends State<RequestSlider>
                   height: 600,
                   child: new TinderSwapCard(
                       orientation: AmassOrientation.BOTTOM,
-                      totalNum: 1,
+                      totalNum: _requestsArticles.length,
                       stackNum: 3,
                       swipeEdge: 4.0,
                       maxWidth: MediaQuery.of(context).size.width * 0.9,
@@ -65,15 +64,49 @@ class _RequestSliderState extends State<RequestSlider>
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(8.0))),
                                   elevation: 5,
-                                  child: Image.network(
-                                    _requestsArticles[index].urlToImage,
-                                    height: 236,
-                                    width: 380,
-                                    fit: BoxFit.fill,
+                                  child: Stack(
+                                    children: <Widget>[
+                                      Image.network(
+                                        _requestsArticles[index].urlToImage,
+                                        height: 236,
+                                        width: 380,
+                                        fit: BoxFit.fill,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 200.0, left: 10),
+                                        child: Align(
+                                          alignment: Alignment.bottomLeft,
+                                          child: Text(_requestsArticles[index].userName, style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600))),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 PriceAndTime(data: _requestsArticles[index]),
-                                CardText(data: _requestsArticles[index])
+                                CardText(data: _requestsArticles[index]),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12.0, top: 10),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "Комментарий:",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.red[900]),
+                                      )),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 12.0, top: 5),
+                                  child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        _requestsArticles[index].userComment,
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600),
+                                      )),
+                                )
                               ],
                             )),
                           ),
@@ -101,6 +134,7 @@ class _RequestSliderState extends State<RequestSlider>
           showEdit: false,
           showSearch: false,
         ),
+        body: MyLoading(),
         bottomNavigationBar: MyBottomAppBar(),
       );
     }
