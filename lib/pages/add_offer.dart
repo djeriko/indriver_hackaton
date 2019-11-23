@@ -11,6 +11,7 @@ class _AddOfferState extends State<AddOffer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: MyAppBar(
         titleText: "Добавить услугу",
         showBack: true,
@@ -23,42 +24,166 @@ class _AddOfferState extends State<AddOffer> {
               color: Colors.black87,
               fontSize: 20,
               fontWeight: FontWeight.w600),
-          child: Column(
-            children: <Widget>[
-              // Title part
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    children: <Widget>[
-                      Text("Заголовок", textAlign: TextAlign.center,),
-                      TextField(
-                        decoration: InputDecoration.collapsed(
-                            hintText: "Введите заголовок услуги"),
-                        onChanged: (val) {},
-                      ),
-                      Divider(),
-                    ],
-                  )),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: <Widget>[
+                // Title part
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Заголовок",
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          height: 15,
+                        ),
+                        TextField(
+                          decoration: InputDecoration.collapsed(
+                              hintText: "Введите заголовок услуги"),
+                          onChanged: (val) {},
+                        ),
+                        Divider(),
+                      ],
+                    )),
+                //Divide
+                Container(
+                  height: 20,
+                ),
 
-              // Description part
-              Text("Описание"),
-              TextField(
-                decoration:
-                    InputDecoration.collapsed(hintText: "Введите текст"),
-                onChanged: (val) {},
-              ),
-              Divider(),
+                // Description part
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Описание",
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          height: 15,
+                        ),
+                        TextField(
+                          decoration: InputDecoration.collapsed(
+                              hintText: "Введите описание услуги"),
+                          onChanged: (val) {},
+                        ),
+                        Divider(),
+                      ],
+                    )),
 
-              Row(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Text("Цена"),
-                    ],
+                // Divide
+                Container(
+                  height: 10,
+                ),
+
+                // Price part
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Цена",
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          height: 15,
+                        ),
+                        TextField(
+                          decoration: InputDecoration.collapsed(
+                              hintText: "Услуга или руб"),
+                          onChanged: (val) {},
+                        ),
+                        Divider(),
+                      ],
+                    )),
+
+                // Time part
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Время",
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          height: 15,
+                        ),
+                        TextField(
+                          decoration: InputDecoration.collapsed(
+                              hintText: "00:00",
+                              hintStyle: TextStyle(
+                                  color: Colors.red[900],
+                                  fontWeight: FontWeight.w600)),
+                          onChanged: (val) {},
+                        ),
+                        Divider(),
+                      ],
+                    )),
+
+                // Tags part
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Теги",
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          height: 15,
+                        ),
+                        TextField(
+                          decoration: InputDecoration.collapsed(
+                            hintText: "Введите теги через запятую",
+                          ),
+                          onChanged: (val) {},
+                        ),
+                        Divider(),
+                      ],
+                    )),
+
+                Container(
+                  height: 30,
+                ),
+                // Button part
+                ButtonTheme(
+                  minWidth: 300.0,
+                  height: 44,
+                  child: RaisedButton(
+                    color: Colors.red,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(22.0)),
+                    child: Text(
+                      "Отправить предложение",
+                      style: TextStyle(
+                          color: Colors.white, fontFamily: 'Montserrat'),
+                    ),
+                    onPressed: () {
+                      setState(() {});
+                    },
                   ),
-                ],
-              ),
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
