@@ -18,7 +18,6 @@ class _MainListViewState extends State<MainListView> {
   var showBlur = false;
   var blur = 0.0;
 
-
   @override
   void initState() {
     super.initState();
@@ -70,7 +69,9 @@ class _MainListViewState extends State<MainListView> {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) => new Profile(urlImage: _offerArticles[index]),));
+                              builder: (context) =>
+                                  new Profile(urlImage: _offerArticles[index]),
+                            ));
                       },
                       child: Material(
                         elevation: 8,
@@ -78,10 +79,11 @@ class _MainListViewState extends State<MainListView> {
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
                             constraints: BoxConstraints.tightFor(
-                                height: 236, width: 390),
-                            child: Image.network(
-                                _offerArticles[index].urlToImage,
-                                fit: BoxFit.fitWidth),
+                                height: 236, width: 380),
+                            child: Stack(children: <Widget>[
+                              Image.network(_offerArticles[index].urlToImage, height: 236, width: 380, fit: BoxFit.fill),
+                                  Text(_offerArticles[index].userName, style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic)),
+                            ]),
                           ),
                         ),
                       ),
@@ -177,21 +179,32 @@ class _MainListViewState extends State<MainListView> {
                     ButtonTheme(
                       minWidth: 300.0,
                       height: 44,
-                      child: RaisedButton(
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(22.0)),
-                        child: Text(
-                          "Отправить предложение",
-                          style: TextStyle(
-                              color: Colors.white, fontFamily: 'Montserrat'),
+                      
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: <Color>[
+                           Colors.green,
+                           Colors.indigo,
+              
+                            ]
+                          )
                         ),
-                        onPressed: () {
+                        child: RaisedButton(
+
+                        
+                          child: const Text(
+                         'Отправить предлоение',
+                          style: TextStyle(fontSize: 20,color: Colors.white) 
+                      
+                          ) ,
+                          onPressed: () {
                           setState(() {
                             showAlert = !showAlert;
                             showBlur = !showBlur;
                           });
                         },
+                        ),
                       ),
                     )
                   ],
@@ -199,6 +212,7 @@ class _MainListViewState extends State<MainListView> {
               ));
         },
       ),
+
 
       AnimatedOpacity(
         duration: Duration(milliseconds: 0),
