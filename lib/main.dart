@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:in_flutter/models/offer_article.dart';
 import 'dart:convert';
 
 import 'package:in_flutter/request_slider.dart';
-import 'package:in_flutter/services/webservice.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,20 +29,10 @@ class _ExampleHomePageState extends State<ExampleHomePage>
     with TickerProviderStateMixin {
   List<String> dogImages = new List();
 
-  List<OfferArticle> _offerArticles = List<OfferArticle>();
-
   @override
   void initState() {
     super.initState();
     fetchFive();
-  }
-
-  void _populateOffersArticles() {
-    Webservice().load(OfferArticle.all).then((offerArticles) => {
-      setState(()=> { 
-        _offerArticles = offerArticles
-      })
-    });
   }
 
   @override
@@ -102,14 +90,19 @@ class _ExampleHomePageState extends State<ExampleHomePage>
                   children: <Widget>[
                     // Image part
                     Material(
-                      elevation: 100,
+                      elevation: 1,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Container(
                           constraints:
                               BoxConstraints.tightFor(height: 236, width: 390),
-                          child: Image.network(dogImages[index],
-                              fit: BoxFit.fitWidth),
+                          child: Stack(
+                                  children: <Widget> [
+                                     Image.network(dogImages[index],
+                                    fit: BoxFit.fill),
+                                     Text('21131321321'),
+                              ]
+                          ),
                         ),
                       ),
                     ),
