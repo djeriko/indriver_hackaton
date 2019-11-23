@@ -40,7 +40,7 @@ class _ProfileState extends State<Profile> {
                   Image.network(widget.urlImage.urlToImage),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, prefix0.MaterialPageRoute(builder: (context)=> new MyReport()));
+                      Navigator.push(context, prefix0.MaterialPageRoute(builder: (context)=> MyReport()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
