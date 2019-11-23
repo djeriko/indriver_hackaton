@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:in_flutter/components/main_list_view.dart';
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/models/offer_article.dart';
-import 'package:in_flutter/request_slider.dart';
+import 'package:in_flutter/pages/request_slider.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,17 +29,13 @@ class _ExampleHomePageState extends State<ExampleHomePage>
     with TickerProviderStateMixin {
   var alertSize = 0.0;
   var showAlert = true;
-
-  List<OfferArticle> _offerArticles = List<OfferArticle>();
+  var myTitle = "qwe";
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      // Anti yellow line
-      resizeToAvoidBottomPadding: false,
-
       // TopAppBar
-      appBar: MyAppBar(),
+      appBar: MyAppBar(titleText: "Главная", showBack: false,),
 
       //Body
       body: MainListView(),

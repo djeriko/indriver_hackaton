@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:in_flutter/models/offer_article.dart';
+import 'package:in_flutter/pages/profile.dart';
 import 'package:in_flutter/services/webservice.dart';
 import 'dart:ui' as ui;
-import "package:flare_flutter/flare_actor.dart";
 
 class MainListView extends StatefulWidget {
   @override
@@ -63,16 +64,24 @@ class _MainListViewState extends State<MainListView> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     // Image part
-                    Material(
-                      elevation: 8,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Container(
-                          constraints:
-                              BoxConstraints.tightFor(height: 236, width: 390),
-                          //child: Image.network(dogImages[index],
-                          child: Image.network(_offerArticles[index].urlToImage,
-                              fit: BoxFit.fitWidth),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => new Profile(urlImage: _offerArticles[index].urlToImage),));
+                      },
+                      child: Material(
+                        elevation: 8,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Container(
+                            constraints: BoxConstraints.tightFor(
+                                height: 236, width: 390),
+                            child: Image.network(
+                                _offerArticles[index].urlToImage,
+                                fit: BoxFit.fitWidth),
+                          ),
                         ),
                       ),
                     ),
@@ -188,12 +197,6 @@ class _MainListViewState extends State<MainListView> {
               ));
         },
       ),
-      // FlareActor(
-      //   "animations/ok.flr",
-      //   alignment: Alignment.center,
-      //   fit: BoxFit.contain,
-      //   animation: 'Untitled',
-      // ),
 
       AnimatedOpacity(
         duration: Duration(milliseconds: 0),
@@ -202,7 +205,7 @@ class _MainListViewState extends State<MainListView> {
           filter: ui.ImageFilter.blur(sigmaX: 8, sigmaY: 8),
           child: Container(
             color: Colors.transparent,
-            height: 200,
+            height: 1,
           ),
         ),
       ),

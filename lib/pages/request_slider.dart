@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
-import 'main.dart';
+import 'package:in_flutter/components/my_app_bar.dart';
+import 'package:in_flutter/components/my_bottom_nav_bar.dart';
 
 class RequestSlider extends StatefulWidget {
   @override
@@ -24,27 +25,7 @@ class _RequestSliderState extends State<RequestSlider>
     CardController controller; //Use this to trigger swap.
 
     return new Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            new IconButton(
-              icon: Icon(Icons.add, color: Colors.white),
-              onPressed: () {},
-            ),
-            Text("Друг на час"),
-          ],
-        ),
-        elevation: 0.2,
-        backgroundColor: Colors.green,
-        actions: <Widget>[
-          new IconButton(
-            icon: Icon(Icons.search, color: Colors.white),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: MyAppBar(titleText: "Запросы", showBack: true,), 
 
       body: new Center(
           child: Container(
@@ -76,39 +57,7 @@ class _RequestSliderState extends State<RequestSlider>
                     /// Get orientation & index of swiped card!
                   }))),
                   //BottomNavBar
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 4.0,
-        color: Colors.green,
-        elevation: 0.2,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {},
-              color: Colors.white,
-            ),
-            IconButton(
-              icon: Icon(Icons.add_circle),
-              onPressed: () {},
-              color: Colors.white,
-            ),
-            IconButton(
-              icon: Icon(Icons.list),
-              onPressed: () {
-              },
-              color: Colors.white,
-            ),
-            IconButton(
-              icon: Icon(Icons.person),
-              onPressed: () {},
-              color: Colors.white,
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: MyBottomAppBar()
     );
   }
 }
