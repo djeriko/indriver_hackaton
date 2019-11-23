@@ -10,7 +10,7 @@ class CardText extends StatelessWidget {
       children: <Widget>[
         //Main info text
         Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.fromLTRB(11.0, 11.0, 0 ,0 ),
           child: Text(
             data.title,
             style: TextStyle(

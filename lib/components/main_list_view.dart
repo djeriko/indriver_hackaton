@@ -86,7 +86,7 @@ class _MainListViewState extends State<MainListView> {
                                 _offerArticles[index].urlToImage,
                                 height: 236,
                                 width: 380,
-                                fit: BoxFit.fill,
+                                fit: BoxFit.fitWidth,
                               ),
                               Align(
                                   alignment: Alignment.bottomLeft,
@@ -280,10 +280,15 @@ class _MainListViewState extends State<MainListView> {
                   ),
 
                   //Place for input
-                  Text(
-                    "two more",
-                    style: TextStyle(fontFamily: "Monteserrat", fontSize: 15),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    
+                    child: TextField(
+                      decoration: InputDecoration.collapsed(hintText: 'Цена'),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
+                  Divider(),
 
                   //Alert message
                   Padding(
