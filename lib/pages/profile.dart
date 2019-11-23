@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:in_flutter/components/my_app_bar.dart';
 import 'package:in_flutter/components/my_bottom_nav_bar.dart';
+import 'package:async/async.dart';
 
 class Profile extends StatefulWidget {
   var urlImage;
@@ -11,16 +12,16 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<Profile>  {
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context)  {
+    return   Scaffold(
       appBar: MyAppBar(
         titleText: widget.urlImage.userName,
         showBack: true,
       ),
       body:
-
           // Text style
           DefaultTextStyle(
         style: TextStyle(
