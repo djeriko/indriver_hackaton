@@ -78,32 +78,10 @@ class _MainListViewState extends State<MainListView> {
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
                             constraints: BoxConstraints.tightFor(
-<<<<<<< HEAD
-                                height: 236, width: 380),
-                            child: Stack(children: <Widget>[
-                              Image.network(_offerArticles[index].urlToImage,
-                                  height: 236, width: 380, fit: BoxFit.fill,),
-                              Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(8, 0, 0, 10),
-                                    child: Text(
-                                      _offerArticles[index].userName,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17.0,
-                                      ),
-                                    ),
-                                  )),
-                            ]),
-=======
                                 height: 236, width: 390),
                             child: Image.network(
                                 _offerArticles[index].urlToImage,
                                 fit: BoxFit.fitWidth),
->>>>>>> c29bf89c875622080f0734283618d900987bcc60
                           ),
                         ),
                       ),
@@ -204,7 +182,7 @@ class _MainListViewState extends State<MainListView> {
                            onPressed: (){
 
                              setState(() {
-                                 showAlert = !showAlert;
+                               showAlert = !showAlert;
                               showBlur = !showBlur;
                              });
 
