@@ -79,6 +79,12 @@ class _MainListViewState extends State<MainListView> {
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
                             constraints: BoxConstraints.tightFor(
+<<<<<<< HEAD
+                                height: 236, width: 390),
+                            child: Image.network(
+                                _offerArticles[index].urlToImage,
+                                fit: BoxFit.fitWidth),
+=======
                                 height: 236, width: 380),
                             child: Stack(children: <Widget>[
                               Image.network(
@@ -102,6 +108,7 @@ class _MainListViewState extends State<MainListView> {
                                     ),
                                   )),
                             ]),
+>>>>>>> 5c87f5b76d5082847a5aaf81dd82e14848e317d7
                           ),
                         ),
                       ),
@@ -199,7 +206,19 @@ class _MainListViewState extends State<MainListView> {
                       padding: EdgeInsets.all(10),
                       height: 40,
                       child: RaisedButton(
+<<<<<<< HEAD
+                           onPressed: (){
+
+                             setState(() {
+                               showAlert = !showAlert;
+                              showBlur = !showBlur;
+                             });
+
+                        },
+                        
+=======
                         onPressed: () {},
+>>>>>>> 5c87f5b76d5082847a5aaf81dd82e14848e317d7
                         textColor: Colors.white,
                         padding: const EdgeInsets.all(0.0),
                         shape: RoundedRectangleBorder(
