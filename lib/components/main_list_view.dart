@@ -204,10 +204,6 @@ class _MainListViewState extends State<MainListView> {
                         },
                         ),
                       ),
-                        
-                      
-                
-                    
                     )
                   ],
                 ),
