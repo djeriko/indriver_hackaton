@@ -81,8 +81,22 @@ class _MainListViewState extends State<MainListView> {
                             constraints: BoxConstraints.tightFor(
                                 height: 236, width: 380),
                             child: Stack(children: <Widget>[
-                              Image.network(_offerArticles[index].urlToImage, height: 236, width: 380, fit: BoxFit.fill),
-                                  Text(_offerArticles[index].userName, style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic)),
+                              Image.network(_offerArticles[index].urlToImage,
+                                  height: 236, width: 380, fit: BoxFit.fill,),
+                              Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(8, 0, 0, 10),
+                                    child: Text(
+                                      _offerArticles[index].userName,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17.0,
+                                      ),
+                                    ),
+                                  )),
                             ]),
                           ),
                         ),
