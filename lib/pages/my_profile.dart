@@ -200,7 +200,8 @@ padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card(
 
 Row(children: <Widget>[
    Padding(
-padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card( 
+padding: EdgeInsets.fromLTRB(10, 10, 0, 10),              
+      child:Card( 
                       
                       color: Colors.indigo,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
