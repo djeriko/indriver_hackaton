@@ -116,7 +116,6 @@ class MyMessages extends StatelessWidget {
           );
         },
       )),
-      bottomNavigationBar: MyBottomAppBar(),
     );
   }
 }
