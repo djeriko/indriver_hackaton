@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:in_flutter/main.dart';
 import 'package:in_flutter/pages/add_offer.dart';
 import 'package:in_flutter/pages/my_profile.dart';
 import 'package:in_flutter/pages/request_slider.dart';
@@ -18,7 +19,9 @@ class MyBottomAppBar extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.home),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, CupertinoPageRoute(builder: (context)=> new ExampleHomePage()));
+            },
             color: Colors.black,
           ),
           IconButton(

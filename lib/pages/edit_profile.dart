@@ -61,7 +61,7 @@ class _EditProfileState extends State<EditProfile> {
                     image: DecorationImage(
                         fit: prefix0.BoxFit.fitHeight,
                         image: new prefix0.NetworkImage(
-                            "https://www.handwerk.com/drimage/1120/630/3277/hide-pain-harold-title-red%20-web.jpg")),
+                            "https://media.gettyimages.com/photos/portrait-of-a-beautifull-smiling-man-picture-id499907722?b=1&k=6&m=499907722&s=612x612&w=0&h=dhMh0LqBXtlh5yxZVxrtsujlSft4YLb5mNthPkj8Pss=")),
                   ),
                 ), //end of avatar
               ),

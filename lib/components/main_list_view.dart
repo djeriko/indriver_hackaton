@@ -86,7 +86,7 @@ class _MainListViewState extends State<MainListView> {
                                 _offerArticles[index].urlToImage,
                                 height: 236,
                                 width: 380,
-                                fit: BoxFit.fitWidth,
+                                fit: BoxFit.cover,
                               ),
                               Align(
                                   alignment: Alignment.bottomLeft,

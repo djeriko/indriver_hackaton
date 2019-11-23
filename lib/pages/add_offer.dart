@@ -210,7 +210,7 @@ class _AddOfferState extends State<AddOffer> {
                           time: timeController.value.text, 
                           tags: tagsController.value.text,
                           urlToImage:
-                              "http://coolmenshair.com/wp-content/uploads/Asian-hairstyles-for-men-6.jpg",
+                              "https://media.gettyimages.com/photos/portrait-of-a-beautifull-smiling-man-picture-id499907722?b=1&k=6&m=499907722&s=612x612&w=0&h=dhMh0LqBXtlh5yxZVxrtsujlSft4YLb5mNthPkj8Pss=",
                           likes: '3',
                           userName: "Лев Толстой",
                           userId: "4",
