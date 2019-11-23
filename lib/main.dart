@@ -37,6 +37,8 @@ class _ExampleHomePageState extends State<ExampleHomePage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      resizeToAvoidBottomPadding: false,
+
       // TopAppBar
       appBar: MyAppBar(titleText: "Главная", showBack: false,),
 
