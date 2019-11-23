@@ -32,6 +32,8 @@ class _AddOfferState extends State<AddOffer> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: MyAppBar(
+        showEdit: false,
+        showSearch: false,
         titleText: "Добавить услугу",
         showBack: true,
       ),

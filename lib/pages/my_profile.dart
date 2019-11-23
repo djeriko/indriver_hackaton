@@ -126,7 +126,121 @@ class _MyProfileState extends State<MyProfile> {
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.w600),
                       )),
+
+                  
                 ),
+                
+Row(children: <Widget>[
+  
+                // coding
+              Padding(
+padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card( 
+                      
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
+                  
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
+                        
+                        child: Text(
+                        'игры',
+                        style: TextStyle(color: Colors.white,fontSize: 17),
+                    ),
+                      ),
+
+                    ),
+                    
+                  ),
+                
+                // movies 
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child:Card( 
+                      
+                      color: Colors.blue,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
+                  
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
+                        
+                        child: Text(
+                        'фильмы',
+                        style: TextStyle(color: Colors.white,fontSize: 17),
+                    ),
+                      ),
+
+                    ),
+                    
+                  ),
+              
+//games
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child:Card( 
+                      
+                      color: Colors.pink,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
+                  
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
+                        
+                        child: Text(
+                        'программы',
+                        style: TextStyle(color: Colors.white,fontSize: 17),
+                    ),
+                      
+
+                    ),
+                    
+                  ),
+                )
+  
+
+],),
+
+Row(children: <Widget>[
+   Padding(
+padding: EdgeInsets.fromLTRB(10, 10, 0, 10),                    child:Card( 
+                      
+                      color: Colors.indigo,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
+                  
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
+                        child: Text(
+                        'музыка',
+                        style: TextStyle(color: Colors.white,fontSize: 17),
+                    ),
+                      ),
+
+                    ),
+                    
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child:Card( 
+                      
+                      color: Colors.green,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),),
+                  
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5 ,right: 5,top: 1,bottom:1 ),
+
+                        child: Text(
+                        'общение',
+                        style: TextStyle(color: Colors.white,fontSize: 17),
+                    ),
+                      
+
+                    ),
+                    
+                  ),
+                ),
+                
+
+],)
+
+
               ],
             ),
           ),
