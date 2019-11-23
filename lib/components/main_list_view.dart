@@ -181,6 +181,11 @@ class _MainListViewState extends State<MainListView> {
                       child: RaisedButton(
                            onPressed: (){
 
+                             setState(() {
+                                 showAlert = !showAlert;
+                              showBlur = !showBlur;
+                             });
+
                         },
                         
                         textColor: Colors.white,
