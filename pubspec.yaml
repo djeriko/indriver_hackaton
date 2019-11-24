@@ -46,6 +46,8 @@ flutter:
       - assets/welcome0.png
       - assets/welcome1.png
       - assets/welcome2.png
+      - assets/Vector.png
+      - assets/like.png
       - animations/
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -109,6 +109,32 @@ class _MainListViewState extends State<MainListView> {
                                   ),
                                 ),
                                 Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        width: 50,
+                                        height: 26,
+                                        decoration: BoxDecoration(
+                                            color: Colors.red[300],
+                                            borderRadius: BorderRadius.all(
+                                                const Radius.circular(15))),
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: <Widget>[
+                                            Text(
+                                              _offerArticles[index].likes.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            Image.asset("assets/like.png")
+                                          ],
+                                        ),
+                                      ),
+                                    )),
+                                Align(
                                     alignment: Alignment.bottomLeft,
                                     child: Padding(
                                       padding: const EdgeInsets.fromLTRB(
