@@ -199,7 +199,6 @@ class _EditProfileState extends State<EditProfile> {
           )
         ],
       ),
-      bottomNavigationBar: MyBottomAppBar(),
     );
   }
 
