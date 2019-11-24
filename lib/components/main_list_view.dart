@@ -4,6 +4,7 @@ import 'package:in_flutter/components/loading.dart';
 import 'package:in_flutter/models/offer_article.dart';
 import 'package:in_flutter/pages/profile.dart';
 import 'package:in_flutter/services/webservice.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'dart:ui' as ui;
 
 class MainListView extends StatefulWidget {
@@ -47,6 +48,7 @@ class _MainListViewState extends State<MainListView> {
 
     if (_offerArticles.isNotEmpty) {
       return Stack(children: <Widget>[
+       
         ListView.builder(
           itemCount: _offerArticles.length,
           padding: const EdgeInsets.only(top: 10.0),
@@ -280,6 +282,15 @@ class _MainListViewState extends State<MainListView> {
                 ));
           },
         ),
+
+        //  Center(
+        //    child: Container(
+        //             width: 200,
+        //             height: 200,
+        //             child: FlareActor('animations/check.flr',
+        //                 animation: 'Untitled', fit: BoxFit.contain),
+        //           ),
+        //  ),
 
         AnimatedOpacity(
           duration: Duration(milliseconds: 0),

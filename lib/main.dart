@@ -73,7 +73,9 @@ class MyTabsState extends State<MyTabs> with SingleTickerProviderStateMixin {
             children: <Widget>[
               IconButton(
                 icon: Icon(Icons.add, color: Colors.red[900]),
-                onPressed: () {},
+                onPressed: () {
+                  
+                },
               ),
               Text(
                 _myHandler.title,
@@ -113,22 +115,22 @@ class MyTabsState extends State<MyTabs> with SingleTickerProviderStateMixin {
               new Tab(
                   icon: new Icon(
                 Icons.home,
-                color: Colors.black,
+                color: controller.index == 0 ? Colors.red[900]: Colors.black,
               )),
               new Tab(
                   icon: new Icon(
                 Icons.add_circle_outline,
-                color: Colors.black,
+                color: controller.index == 1 ? Colors.red[900]: Colors.black,
               )),
               new Tab(
                   icon: new Icon(
                 Icons.history,
-                color: Colors.black,
+                color: controller.index == 2 ? Colors.red[900]: Colors.black,
               )),
               new Tab(
                   icon: new Icon(
                 Icons.account_circle,
-                color: Colors.black,
+                color: controller.index == 3 ? Colors.red[900]: Colors.black,
               ))
             ])),
         body: new TabBarView(

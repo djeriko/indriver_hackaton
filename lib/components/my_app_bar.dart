@@ -24,10 +24,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add, color: Colors.red[900]),
-            onPressed: () {},
-          ),
+      
           Text(
             titleText,
             style: TextStyle(color: Colors.black),
