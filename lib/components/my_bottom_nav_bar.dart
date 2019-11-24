@@ -20,7 +20,7 @@ class MyBottomAppBar extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.push(context, CupertinoPageRoute(builder: (context)=> new ExampleHomePage()));
+              //Navigator.push(context, CupertinoPageRoute(builder: (context)=> new ExampleHomePage()));
             },
             color: Colors.black,
           ),

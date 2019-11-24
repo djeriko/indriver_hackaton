@@ -36,14 +36,7 @@ class _RequestSliderState extends State<RequestSlider>
     CardController controller; //Use this to trigger swap.
 
     if (_requestsArticles.isNotEmpty) {
-      return Scaffold(
-          appBar: MyAppBar(
-            titleText: "Запросы",
-            showBack: true,
-            showEdit: false,
-            showSearch: false,
-          ),
-          body: prefix0.SingleChildScrollView(
+      return prefix0.SingleChildScrollView(
             child: new Center(
                 child: Container(
                     height: 590,
@@ -138,20 +131,11 @@ class _RequestSliderState extends State<RequestSlider>
                             (CardSwipeOrientation orientation, int index) {
                           /// Get orientation & index of swiped card!
                         }))),
-          ),
+          );
           //BottomNavBar
-          bottomNavigationBar: MyBottomAppBar());
     } else {
-      return Scaffold(
-        appBar: MyAppBar(
-          titleText: "Запросы",
-          showBack: true,
-          showEdit: false,
-          showSearch: false,
-        ),
-        body: MyLoading(),
-        bottomNavigationBar: MyBottomAppBar(),
-      );
+      return MyLoading();
+        
     }
   }
 }

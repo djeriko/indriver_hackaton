@@ -29,209 +29,198 @@ class _AddOfferState extends State<AddOffer> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      appBar: MyAppBar(
-        showEdit: false,
-        showSearch: false,
-        titleText: "Добавить услугу",
-        showBack: true,
-      ),
-      body: Container(
-        // Text style
-        child: DefaultTextStyle(
-          style: TextStyle(
-              fontFamily: 'Montserrat',
-              color: Colors.black87,
-              fontSize: 20,
-              fontWeight: FontWeight.w600),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: <Widget>[
-                // Title part
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Заголовок",
-                            textAlign: TextAlign.center,
-                          ),
+    return Container(
+      // Text style
+      child: DefaultTextStyle(
+        style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Colors.black87,
+            fontSize: 20,
+            fontWeight: FontWeight.w600),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              // Title part
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Заголовок",
+                          textAlign: TextAlign.center,
                         ),
-                        Container(
-                          height: 15,
-                        ),
-                        TextField(
-                          controller: titleController,
-                          decoration: InputDecoration.collapsed(
-                              hintText: "Введите заголовок услуги"),
-                        ),
-                        Divider(),
-                      ],
-                    )),
-                //Divide
-                Container(
-                  height: 20,
-                ),
+                      ),
+                      Container(
+                        height: 15,
+                      ),
+                      TextField(
+                        controller: titleController,
+                        decoration: InputDecoration.collapsed(
+                            hintText: "Введите заголовок услуги"),
+                      ),
+                      Divider(),
+                    ],
+                  )),
+              //Divide
+              Container(
+                height: 20,
+              ),
 
-                // Description part
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Описание",
-                            textAlign: TextAlign.center,
-                          ),
+              // Description part
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Описание",
+                          textAlign: TextAlign.center,
                         ),
-                        Container(
-                          height: 15,
-                        ),
-                        TextField(
-                          controller: descriptionController,
-                          decoration: InputDecoration.collapsed(
-                              hintText: "Введите описание услуги"),
-                          onChanged: (val) {},
-                        ),
-                        Divider(),
-                      ],
-                    )),
+                      ),
+                      Container(
+                        height: 15,
+                      ),
+                      TextField(
+                        controller: descriptionController,
+                        decoration: InputDecoration.collapsed(
+                            hintText: "Введите описание услуги"),
+                        onChanged: (val) {},
+                      ),
+                      Divider(),
+                    ],
+                  )),
 
-                // Divide
-                Container(
-                  height: 10,
-                ),
+              // Divide
+              Container(
+                height: 10,
+              ),
 
-                // Price part
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Цена",
-                            textAlign: TextAlign.center,
-                          ),
+              // Price part
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Цена",
+                          textAlign: TextAlign.center,
                         ),
-                        Container(
-                          height: 15,
-                        ),
-                        TextField(
-                          controller: priceController,
-                          decoration: InputDecoration.collapsed(
-                              hintText: "Услуга или руб"),
-                        ),
-                        Divider(),
-                      ],
-                    )),
+                      ),
+                      Container(
+                        height: 15,
+                      ),
+                      TextField(
+                        controller: priceController,
+                        decoration: InputDecoration.collapsed(
+                            hintText: "Услуга или руб"),
+                      ),
+                      Divider(),
+                    ],
+                  )),
 
-                // Time part
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Время",
-                            textAlign: TextAlign.center,
-                          ),
+              // Time part
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Время",
+                          textAlign: TextAlign.center,
                         ),
-                        Container(
-                          height: 15,
-                        ),
-                        TextField(
-                          controller: timeController,
-                          decoration: InputDecoration.collapsed(
-                              hintText: "00:00",
-                              hintStyle: TextStyle(
-                                  color: Colors.red[900],
-                                  fontWeight: FontWeight.w600)),
-                          onChanged: (val) {},
-                        ),
-                        Divider(),
-                      ],
-                    )),
+                      ),
+                      Container(
+                        height: 15,
+                      ),
+                      TextField(
+                        controller: timeController,
+                        decoration: InputDecoration.collapsed(
+                            hintText: "00:00",
+                            hintStyle: TextStyle(
+                                color: Colors.red[900],
+                                fontWeight: FontWeight.w600)),
+                        onChanged: (val) {},
+                      ),
+                      Divider(),
+                    ],
+                  )),
 
-                // Tags part
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Теги",
-                            textAlign: TextAlign.center,
-                          ),
+              // Tags part
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Теги",
+                          textAlign: TextAlign.center,
                         ),
-                        Container(
-                          height: 15,
+                      ),
+                      Container(
+                        height: 15,
+                      ),
+                      TextField(
+                        controller: tagsController,
+                        decoration: InputDecoration.collapsed(
+                          hintText: "Введите теги через запятую",
                         ),
-                        TextField(
-                          controller: tagsController,
-                          decoration: InputDecoration.collapsed(
-                            hintText: "Введите теги через запятую",
-                          ),
-                          onChanged: (val) {},
-                        ),
-                        Divider(),
-                      ],
-                    )),
+                        onChanged: (val) {},
+                      ),
+                      Divider(),
+                    ],
+                  )),
 
-                Container(
-                  height: 30,
-                ),
-                // Button part
-                ButtonTheme(
-                  minWidth: 300.0,
-                  height: 44,
-                  child: RaisedButton(
-                    color: Colors.red,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(22.0)),
-                    child: Text(
-                      "Отправить предложение",
-                      style: TextStyle(
-                          color: Colors.white, fontFamily: 'Montserrat'),
-                    ),
-                    onPressed: () async {
-                      print("asd");
-                      NewOffer newOffer = new NewOffer(
-                          title: titleController.value.text,
-                          description: descriptionController.value.text, 
-                          price: priceController.value.text,
-                          time: timeController.value.text, 
-                          tags: tagsController.value.text,
-                          urlToImage:
-                              "https://media.gettyimages.com/photos/portrait-of-a-beautifull-smiling-man-picture-id499907722?b=1&k=6&m=499907722&s=612x612&w=0&h=dhMh0LqBXtlh5yxZVxrtsujlSft4YLb5mNthPkj8Pss=",
-                          likes: '3',
-                          userName: "Лев Толстой",
-                          userId: "4",
-                          userAge: '35',
-                          userAbout:
-                              "Пишу книги. Играю в футбол. Сажаю яблоки у себя в саду",
-                          city: 'Yakutsk');
-                      NewOffer p = await createPost(
-                          Constants.HEADLINE_OFFERS_URL,
-                          body: newOffer.toMap());
-                      Navigator.pop(context);
-                      print(p.title);
-                    },
+              Container(
+                height: 30,
+              ),
+              // Button part
+              ButtonTheme(
+                minWidth: 300.0,
+                height: 44,
+                child: RaisedButton(
+                  color: Colors.red,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0)),
+                  child: Text(
+                    "Отправить предложение",
+                    style: TextStyle(
+                        color: Colors.white, fontFamily: 'Montserrat'),
                   ),
-                )
-              ],
-            ),
+                  onPressed: () async {
+                    print("asd");
+                    NewOffer newOffer = new NewOffer(
+                        title: titleController.value.text,
+                        description: descriptionController.value.text,
+                        price: priceController.value.text,
+                        time: timeController.value.text,
+                        tags: tagsController.value.text,
+                        urlToImage:
+                            "https://media.gettyimages.com/photos/portrait-of-a-beautifull-smiling-man-picture-id499907722?b=1&k=6&m=499907722&s=612x612&w=0&h=dhMh0LqBXtlh5yxZVxrtsujlSft4YLb5mNthPkj8Pss=",
+                        likes: '3',
+                        userName: "Лев Толстой",
+                        userId: "4",
+                        userAge: '35',
+                        userAbout:
+                            "Пишу книги. Играю в футбол. Сажаю яблоки у себя в саду",
+                        city: 'Yakutsk');
+                    NewOffer p = await createPost(Constants.HEADLINE_OFFERS_URL,
+                        body: newOffer.toMap());
+                    Navigator.pop(context);
+                    print(p.title);
+                  },
+                ),
+              )
+            ],
           ),
         ),
       ),
-      bottomNavigationBar: MyBottomAppBar(),
     );
   }
 }
